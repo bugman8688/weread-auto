@@ -59,9 +59,10 @@ if __name__ == '__main__':
         delt_time = (mkt_now - mkt_last) / 60  # 转成分钟
         leftTime = planTime - delt_time
 
-        if leftTime % 30 == 0 and leftTime != planTime:
+        intLeft = int(leftTime)
+        if (planTime - intLeft) % 60 == 0 and planTime != intLeft:
             notify("一个小时用眼辛苦了")
-        print("剩余" + str(int(leftTime)) + '分钟')
+        print("剩余%d分钟" % intLeft)
         auto_swipe()
 
     notify("自动读书完毕")
